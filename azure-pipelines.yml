@@ -32,7 +32,7 @@ stages:
         containerregistrytype: 'Azure Container Registry'
         azureSubscription: 'Azure subscription 1(8472d566-ad23-45da-b2f8-7bb7aa73e5d5)'
         azureContainerRegistry: '{"loginServer":"unyleyarg.azurecr.io", "id" : "/subscriptions/8472d566-ad23-45da-b2f8-7bb7aa73e5d5/resourceGroups/unyleya-resources/providers/Microsoft.ContainerRegistry/registries/unyleyarg"}'
-        dockerComposeFile: '**/docker-compose.yml'
+        dockerComposeFile: '$(Build.SourcesDirectory)/azure-vote/docker-compose.yml'
         action: 'Run a Docker Compose command'
         dockerComposeCommand: 'docker-compose up -d'
     
