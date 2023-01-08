@@ -20,34 +20,11 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build an image
+      displayName: Build and Push an image
       inputs:
-        command: build
+        command: buildAndPush
         dockerfile: '$(Build.SourcesDirectory)/azure-vote/Dockerfile'
+        containerRegistry: unyleyarg
+        repository: app
         tags: |
           $(tag)
-    - task: DockerCompose@0
-      displayName: Build services
-      inputs:
-        action: Build services
-        containerregistrytype: 'Azure Container Registry'
-        azureSubscription: $(azureSubscription)
-        azureContainerRegistry: $(azureContainerRegistry)
-        dockerComposeFile: '$(Build.SourcesDirectory)/docker-compose.yaml'
-        projectName: $(Build.Repository.Name)
-        qualifyImageNames: true
-        additionalImageTags: $(Build.BuildId)
-        dockerComposeFileArgs: |
-          firstArg=$(firstArg)
-          secondArg=$(secondArg)
-    - task: DockerCompose@0
-      displayName: Push services
-      inputs:
-        action: Push services
-        containerregistrytype: 'Azure Container Registry'
-        azureSubscription: $(azureSubscription)
-        azureContainerRegistry: $(azureContainerRegistry)
-        dockerComposeFile: '$(Build.SourcesDirectory)/docker-compose.yaml'
-        projectName: $(Build.Repository.Name)
-        qualifyImageNames: true
-        additionalImageTags: $(Build.BuildId)
