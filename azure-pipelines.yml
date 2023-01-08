@@ -33,4 +33,4 @@ stages:
         azureContainerRegistry: '{"loginServer":"unyleyarg.azurecr.io", "id" : "/subscriptions/8472d566-ad23-45da-b2f8-7bb7aa73e5d5/resourceGroups/unyleya-resources/providers/Microsoft.ContainerRegistry/registries/unyleyarg"}'
         dockerComposeFile: '$(Build.SourcesDirectory)/docker-compose.yaml'
         action: 'Run a Docker Compose command'
-        dockerComposeCommand: '/usr/local/bin/docker-compose up -d'
+        dockerComposeCommand: 'up'
