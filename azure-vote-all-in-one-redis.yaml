@@ -57,7 +57,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: unyleyarg.azurecr.io/app:$(Build.BuildId)
+        image: unyleyarg.azurecr.io/app:latest
         ports:
         - containerPort: 80
         resources:
