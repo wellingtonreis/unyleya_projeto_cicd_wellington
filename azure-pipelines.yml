@@ -28,6 +28,7 @@ stages:
         repository: app
         tags: |
           $(tag)
+          latest
     - task: PublishBuildArtifacts@1
       inputs:
         PathtoPublish: '$(Build.SourcesDirectory)/unyleya'
