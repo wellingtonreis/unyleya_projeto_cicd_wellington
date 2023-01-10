@@ -28,3 +28,8 @@ stages:
         repository: app
         tags: |
           $(tag)
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.SourcesDirectory)/unyleya'
+        ArtifactName: 'unyleya'
+        publishLocation: 'Container'
